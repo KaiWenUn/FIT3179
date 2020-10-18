@@ -4,10 +4,10 @@
   "width": 800,
   "height": 600,
   "data": {
-    "url": "https://raw.githubusercontent.com/KaiWenUn/FIT3179/main/homeworkW9/js/ne_110m_admin_0_countries.topojson",
+    "url": "https://raw.githubusercontent.com/KaiWenUn/FIT3179/main/homeworkW9/js/happiness.topojson",
     "format": {
           "type": "topojson",
-          "feature": "ne_110m_admin_0_countries"
+          "feature": "happiness"
         }
   },
   "transform": [{
