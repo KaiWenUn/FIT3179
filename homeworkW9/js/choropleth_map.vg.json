@@ -17,10 +17,10 @@
           "url": "https://raw.githubusercontent.com/KaiWenUn/FIT3179/main/homeworkW9/data/2015.csv"
         },
         "key": "Country",
-        "fields": ["Happiness Score"]
+        "fields": ["Happiness_Score"]
       }
     },
-    {"calculate": "datum.Active + 0.1", "as": "Active Cases"}
+    {"calculate": "datum.Happiness_Score", "as": "Happiness Score"}
   ],
   "projection": {
     "type": "equirectangular"
