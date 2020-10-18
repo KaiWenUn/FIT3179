@@ -30,7 +30,7 @@
     },
   "encoding": {
     "color": {
-      "field": "Active Cases",
+      "field": "Happiness Score",
       "type": "quantitative",
       "scale": {"type": "log"}
     },
