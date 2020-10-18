@@ -20,7 +20,7 @@
         "fields": ["Happiness_Score"]
       }
     },
-    {"calculate": "datum.Happiness_Score + 0.1", "as": "Happiness Score"}
+    {"calculate": "datum.Happiness_Score", "as": "Happiness Score"}
   ],
   "projection": {
     "type": "equirectangular"
