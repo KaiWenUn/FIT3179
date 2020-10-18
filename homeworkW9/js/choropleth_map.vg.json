@@ -4,7 +4,7 @@
   "width": 800,
   "height": 600,
   "data": {
-    "url": "https://raw.githubusercontent.com/KaiWenUn/FIT3179/main/homeworkW9/js/happiness.topojson",
+    "url": "https://raw.githubusercontent.com/KaiWenUn/FIT3179/main/homeworkW9/js/happiness.geo.topojson",
     "format": {
           "type": "topojson",
           "feature": "happiness"
