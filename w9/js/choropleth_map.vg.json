@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/KaiWenUn/FIT3179/main/w9/js/happinessscore.topojson",
     "format": {
           "type": "topojson",
-          "feature": "happinessscore"
+          "feature": "ne_110m_admin_0_countries"
         }
   },
   "transform": [{
