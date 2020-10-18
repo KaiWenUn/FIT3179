@@ -1,1 +1,44 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Happiness Score (2015)",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/KaiWenUn/FIT3179/main/w9/js/happinessscore.topojson",
+    "format": {
+          "type": "topojson",
+          "feature": "happinessscore"
+        }
+  },
+  "transform": [{
+      "lookup": "properties.NAME",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/KaiWenUn/FIT3179/main/w9/data/2015.csv"
+        },
+        "key": "Country",
+        "fields": ["Happiness_Score"]
+      }
+    },
+    {"calculate": "datum.Happiness_Score + 0.1", "as": "Happiness Score"}
+  ],
+  "projection": {
+    "type": "equirectangular"
+  },
+  "mark": {
+    "type": "geoshape"
+    },
+  "encoding": {
+    "color": {
+      "field": "Happiness Score",
+      "type": "quantitative",
+      "scale": {"type": "log"}
+    },
+    "tooltip": [
+      {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+      {"field": "Happiness_Score", "type": "quantitative"}
+    ]
+  }
+
+}
 
