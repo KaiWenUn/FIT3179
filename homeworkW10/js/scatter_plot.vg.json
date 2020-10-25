@@ -36,8 +36,8 @@
     },
     "size": {"field": "Generosity", "type": "quantitative",  "scale": {"range": [30, 500]}
 },
-    "fill": {"field": "Region",  "type": "nominal","scale": {"domain":["North America", "Latin America and Caribbean", "Western Europe", "Central and Eastern Europe", "Sub-Saharan Africa", "Middle East and Northern Africa", "Eastern Asia", "Southeastern Asia", "Australia and New Zealand"], "range": ["#e41a1c", "#984ea3", "#ff7f00", "#a6cee3", "#377eb8", "#a65628", '#00FF00', '#FFFF00', '#000000']}},
-    "color": {"field": "Region", "type": "nominal","scale": {"domain":["North America", "Latin America and Caribbean", "Western Europe", "Central and Eastern Europe", "Sub-Saharan Africa", "Middle East and Northern Africa", "Eastern Asia", "Southeastern Asia", "Australia and New Zealand"],"range": ["#e41a1c", "#984ea3", "#ff7f00", "#a6cee3", "#377eb8", "#a65628", '#00FF00', '#FFFF00', '#000000']}
+    "fill": {"field": "Region",  "type": "nominal","scale": {"domain":["North America", "Latin America and Caribbean", "Western Europe", "Central and Eastern Europe", "Sub-Saharan Africa", "Middle East and Northern Africa", "Eastern Asia", "Southeastern Asia", "Australia and New Zealand"], "range": ["#e41a1c", "#984ea3", "#ff7f00", "#a6cee3", "#377eb8", "#a65628", "#00FF00", "#FFFF00", "#000000"]}},
+    "color": {"field": "Region", "type": "nominal","scale": {"domain":["North America", "Latin America and Caribbean", "Western Europe", "Central and Eastern Europe", "Sub-Saharan Africa", "Middle East and Northern Africa", "Eastern Asia", "Southeastern Asia", "Australia and New Zealand"],"range": ["#e41a1c", "#984ea3", "#ff7f00", "#a6cee3", "#377eb8", "#a65628", "#00FF00", "#FFFF00", "#000000"]}
     },
     "opacity": {
       "condition": {"selection": "region_selection", "value": 0.8},
