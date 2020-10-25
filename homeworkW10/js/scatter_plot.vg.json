@@ -2,21 +2,21 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "height": 500,
   "width": 500,
-  "title": "COVID-19 Cases per Country (13 Oct 2020)",
+  "title": "Happiness Score (2015)",
   "data": {
-    "url": "https://raw.githubusercontent.com/KaneSec/vega_lite/main/4_interactive_scatter_plot/data/COVID_19_10_Oct_2020.csv"
+    "url": "https://raw.githubusercontent.com/KaiWenUn/FIT3179/main/homeworkW10/data/2015.csv"
   },
     "params": [
     {
-      "name": "Population_Above",
+      "name": "Generosity_Above",
 
       "value": 0,
       "bind": {"input": "range", "min": 0, "max": 100000000, "step": 1000000}
     }
   ],
   "selection": {
-    "continent_selection": {
-      "type": "multi", "fields": ["Continent"], "bind": "legend"
+    "region_selection": {
+      "type": "multi", "fields": ["Region"], "bind": "legend"
     }
   },
   "transform":[
@@ -28,33 +28,33 @@
   "mark": "point",
   "encoding": {
     "x": {
-      "field": "Confirmed",
+      "field": "Happiness_Score",
       "type": "quantitative",
-      "title":"Confirmed Cases",
-      "axis": {"tickCount": 7},
-      "scale": {"type": "log",  "domain":[1, 10000000]}
+      "title":"Happiness Score",
+      "axis": {"tickCount": 8},
+      "scale": {"type": "log",  "domain":[0, 8]}
     },
     "y": {
-      "field": "Deaths",
+      "field": "Freedom",
       "type": "quantitative",
       "axis": { "tickCount": 6},
-      "scale": {"type": "log", "domain":[1, 1000000]}
+      "scale": {"type": "log", "domain":[0.00, 1.00]}
     },
-    "size": {"field": "Population", "type": "quantitative",  "scale": {"range": [30, 500]}
+    "size": {"field": "Generosity", "type": "quantitative",  "scale": {"range": [30, 500]}
 },
-    "fill": {"field": "Continent",  "type": "nominal","scale": {"domain":["North America", "South America", "Europe", "Africa", "Asia", "Oceania"], "range": ["#e41a1c", "#984ea3", "#ff7f00", "#a6cee3", "#377eb8", "#a65628"]}},
-    "color": {"field": "Continent", "type": "nominal","scale": {"domain":["North America", "South America", "Europe", "Africa", "Asia", "Oceania"],"range": ["#e41a1c", "#984ea3", "#ff7f00", "#a6cee3", "#377eb8", "#a65628"]}
+    "fill": {"field": "Region",  "type": "nominal","scale": {"domain":["North America", "Latin America and Caribbean", "Western Europe", "Central and Eastern Europe", "Sub-Saharan Africa", "Middle East and Northern Africa", "Eastern Asia", "Southeastern Asia", "Australia and New Zealand"], "range": ["#e41a1c", "#984ea3", "#ff7f00", "#a6cee3", "#377eb8", "#a65628", '#00FF00', '#FFFF00', '#000000']}},
+    "color": {"field": "Region", "type": "nominal","scale": {"domain":["North America", "Latin America and Caribbean", "Western Europe", "Central and Eastern Europe", "Sub-Saharan Africa", "Middle East and Northern Africa", "Eastern Asia", "Southeastern Asia", "Australia and New Zealand"],"range": ["#e41a1c", "#984ea3", "#ff7f00", "#a6cee3", "#377eb8", "#a65628", '#00FF00', '#FFFF00', '#000000']}
     },
     "opacity": {
-      "condition": {"selection": "continent_selection", "value": 0.8},
+      "condition": {"selection": "region_selection", "value": 0.8},
       "value": 0.2
     },
     "tooltip": [
       {"field": "Country", "type": "nominal"},
-      {"field": "Confirmed", "type": "quantitative", "format": ","},
-      {"field": "Active", "type": "quantitative", "format": ","},
-      {"field": "Deaths", "type": "quantitative", "format": ","},
-      {"field": "Recovered", "type": "quantitative", "format": ","}
+      {"field": "Happiness Rank", "type": "nominal", "format": ","},
+      {"field": "Happiness Score", "type": "quantitative", "format": ","},
+      {"field": "Freedom", "type": "quantitative", "format": ","},
+      {"field": "Generosity", "type": "quantitative", "format": ","}
     ]
 
   }
