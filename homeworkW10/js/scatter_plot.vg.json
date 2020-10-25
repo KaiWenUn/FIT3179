@@ -19,12 +19,6 @@
       "type": "multi", "fields": ["Region"], "bind": "legend"
     }
   },
-  "transform":[
-    {"filter": "datum.Active > 0"},
-    {"filter": "datum.Deaths > 0"},
-    {"filter": "datum.Population > Population_Above"},
-    {"calculate": "datum.Confirmed/datum.Population", "as": "Cases per 10,000 Population"}
-  ],
   "mark": "point",
   "encoding": {
     "x": {
