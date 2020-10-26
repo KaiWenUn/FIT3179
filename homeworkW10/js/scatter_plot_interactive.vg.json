@@ -7,14 +7,14 @@
     "url": "https://raw.githubusercontent.com/KaiWenUn/FIT3179/main/homeworkW10/data/2015.csv"
   },
   "params": [
-    {
-      "name": "Population_Above",
+        {
+      "name": "Generosity_Above",
       "value": 0,
       "bind": {
         "input": "range",
         "min": 0,
-        "max": 100000000,
-        "step": 1000000,
+        "max": 1,
+        "step": 0.01,
         "name": "Minimum Population: "
       }
     },
@@ -51,28 +51,25 @@
     }
   ],
   "transform": [
-    {"filter": "datum.Active > 0"},
-    {"filter": "datum.Deaths > 0"},
-    {"filter": "datum.Population > Population_Above"},
-    {"filter": "Region_selection == null || datum.Region == Region_selection"},
-    {
-      "calculate": "datum.Confirmed/datum.Population * 10000",
-      "as": "Cases per 10,000 Population"
-    }
+    {"filter": "datum.Happiness_Score > 0"},
+    {"filter": "datum.Freedom > 0"},
+    {"filter": "datum.Generosity > Generosity_Above"},
+    {"filter": "Region_selection == null || datum.Region == Region_selection"}
+
   ],
   "encoding": {
     "x": {
-      "field": "Confirmed",
+      "field": "Happiness_Score",
       "type": "quantitative",
-      "title": "Confirmed Cases",
-      "axis": {"tickCount": 7},
-      "scale": {"type": "log", "domain": [1, 10000000]}
+      "title":"Happiness Score",
+      "axis": {"tickCount": 10},
+      "scale": {"domain": [1, 8]}
     },
     "y": {
-      "field": "Deaths",
+      "field": "Freedom",
       "type": "quantitative",
-      "axis": {"tickCount": 6},
-      "scale": {"type": "log", "domain": [1, 1000000]}
+      "axis": {"tickCount": 10},
+      "scale": { "domain": [0, 1]}
     }
   },
   "layer": [
@@ -87,11 +84,11 @@
       "mark": "circle",
       "encoding": {
         "size": {
-          "field": "Population",
+          "field": "Generosity",
           "type": "quantitative",
           "scale": {
             "type": "threshold",
-            "domain": [1000000, 10000000, 50000000, 100000000, 500000000],
+            "domain": [0.01, 0.1, 0.2, 0.3, 0.4, 0.5],
             "range": [10, 50, 150, 200, 300, 400]
           },
           "legend": {"format": ".1s"}
@@ -156,24 +153,19 @@
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": "datum['Country'] == 'China' || datum['Country'] == 'Singapore' || datum['Country'] == 'Australia' || datum['Country'] == 'New Zealand' || datum['Country'] == 'Italy' || datum['Country'] == 'Yemen' ||  datum['Country'] == 'United States'",
+            "test": "datum['Country'] == 'China' || datum['Country'] == 'Singapore' || datum['Country'] == 'Australia' || datum['Country'] == 'New Zealand' || datum['Country'] == 'Italy' || datum['Country'] == 'Switzerland' ||  datum['Country'] == 'United States'",
             "value": 1
           },
           "value": 0
         },
         
-        "tooltip": [
-          {"field": "Country", "type": "nominal"},
-          {"field": "Confirmed", "type": "quantitative", "format": ","},
-          {"field": "Active", "type": "quantitative", "format": ","},
-          {"field": "Deaths", "type": "quantitative", "format": ","},
-          {"field": "Recovered", "type": "quantitative", "format": ","},
-          {
-            "field": "Cases per 10,000 Population",
-            "type": "quantitative",
-            "format": ".2f"
-          }
-        ]
+    "tooltip": [
+      {"field": "Country", "type": "nominal"},
+      {"field": "Happiness Rank", "type": "nominal", "format": ","},
+      {"field": "Happiness_Score", "title": "Happiness Score", "type": "quantitative", "format": ","},
+      {"field": "Freedom", "type": "quantitative", "format": ","},
+      {"field": "Generosity", "type": "quantitative", "format": ","}
+    ]
       }
     }
   ]
