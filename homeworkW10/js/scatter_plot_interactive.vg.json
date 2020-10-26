@@ -2,9 +2,9 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 800,
   "height": 600,
-  "title": "COVID-19 Cases per Country (13 Oct 2020)",
+  "title": "Happiness Around The World",
   "data": {
-    "url": "https://raw.githubusercontent.com/KaneSec/vega_lite/main/4_interactive_scatter_plot/data/COVID_19_10_Oct_2020.csv"
+    "url": "https://raw.githubusercontent.com/KaiWenUn/FIT3179/main/homeworkW10/data/2015.csv"
   },
   "params": [
     {
@@ -30,6 +30,15 @@
           "Africa",
           "Asia",
           "Oceania"
+          "North America", 
+          "Latin America and Caribbean", 
+          "Western Europe", 
+          "Central and Eastern Europe", 
+          "Sub-Saharan Africa", 
+          "Middle East and Northern Africa", 
+          "Eastern Asia", 
+          "Southeastern Asia", 
+          "Australia and New Zealand"
         ],
         "labels":[
           "Show All",
