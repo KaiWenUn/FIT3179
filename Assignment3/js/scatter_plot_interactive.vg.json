@@ -1,0 +1,159 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 800,
+  "height": 600,
+  "title": "Happiness Around The World",
+  "data": {
+    "url": "https://raw.githubusercontent.com/KaiWenUn/FIT3179/main/homeworkW10/data/2015.csv"
+  },
+  "params": [
+        {
+      "name": "Generosity_Above",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 0.7,
+        "step": 0.01,
+        "name": "Generosity: "
+      }
+    },
+    {
+      "name": "Region_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "North America", 
+          "Latin America and Caribbean", 
+          "Western Europe", 
+          "Central and Eastern Europe", 
+          "Sub-Saharan Africa", 
+          "Middle East and Northern Africa", 
+          "Eastern Asia", 
+          "Southeastern Asia", 
+          "Australia and New Zealand"
+        ],
+        "labels":[
+          "Show All",
+          "North America", 
+          "Latin America and Caribbean", 
+          "Western Europe", 
+          "Central and Eastern Europe", 
+          "Sub-Saharan Africa", 
+          "Middle East and Northern Africa", 
+          "Eastern Asia", 
+          "Southeastern Asia", 
+          "Australia and New Zealand"
+        ],
+        "name": "Region Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum.Happiness_Score > 0"},
+    {"filter": "datum.Freedom > 0"},
+    {"filter": "datum.Generosity > Generosity_Above"},
+    {"filter": "Region_selection == null || datum.Region == Region_selection"}
+
+  ],
+  "encoding": {
+    "x": {
+      "field": "Happiness_Score",
+      "type": "quantitative",
+      "title":"Happiness Score",
+      "axis": {"tickCount": 10},
+      "scale": {"domain": [1, 8]}
+    },
+    "y": {
+      "field": "Freedom",
+      "type": "quantitative",
+      "axis": {"tickCount": 10},
+      "scale": { "domain": [0, 1]}
+    }
+  },
+  "layer": [
+    {
+      "selection": {
+        "region_highlight": {
+          "type": "multi",
+          "fields": ["Region"],
+          "bind": "legend"
+        }
+      },
+      "mark": "circle",
+      "encoding": {
+        "size": {
+          "field": "Generosity",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [0.05, 0.1, 0.2, 0.5, 0.7]
+          }
+        },
+        "color": {
+          "field": "Region",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+          "North America", 
+          "Latin America and Caribbean", 
+          "Western Europe", 
+          "Central and Eastern Europe", 
+          "Sub-Saharan Africa", 
+          "Middle East and Northern Africa", 
+          "Eastern Asia", 
+          "Southeastern Asia", 
+          "Australia and New Zealand"
+            ],
+            "range": [
+              "#e41a1c",
+              "#984ea3",
+              "#ff7f00",
+              "#a6cee3",
+              "#377eb8",
+              "#a65628", 
+              "#00FF00", 
+              "#FFFF00", 
+              "#000000"
+            ]
+          }
+        },
+        "opacity": {
+          "condition": {"selection": "region_highlight", "value": 0.6},
+          "value": 0.2
+        },
+    "tooltip": [
+      {"field": "Country", "type": "nominal"},
+      {"field": "Happiness Rank", "type": "nominal", "format": ","},
+      {"field": "Happiness_Score", "title": "Happiness Score", "type": "quantitative", "format": ","},
+      {"field": "Freedom", "type": "quantitative", "format": ","},
+      {"field": "Generosity", "type": "quantitative", "format": ","}
+    ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -12,
+        "fontSize": 11.5,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "Country", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Country'] == 'China' || datum['Country'] == 'Australia' || datum['Country'] == 'Italy' || datum['Country'] == 'Switzerland' || datum['Country'] == 'Russia' || datum['Country'] == 'United States'",
+            "value": 1
+          },
+          "value": 0
+        }
+        
+
+      }
+    }
+  ]
+}
