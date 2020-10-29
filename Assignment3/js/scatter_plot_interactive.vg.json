@@ -150,7 +150,7 @@
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": "datum['Country'] == 'China' || datum['Country'] == 'Australia' || datum['Country'] == 'Italy' || datum['Country'] == 'Switzerland' || datum['Country'] == 'Russia' || datum['Country'] == 'United States'",
+            "test": "datum['Country'] == 'China' || datum['Country'] == 'Australia' || datum['Country'] == 'Italy' || datum['Country'] == 'Norway' || datum['Country'] == 'Russia' || datum['Country'] == 'United States'",
             "value": 1
           },
           "value": 0
