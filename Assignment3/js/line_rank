@@ -4,53 +4,30 @@
     "text": "Happiest Countries (2015-2017)",
     "frame": "bounds"
   },
+  "width": 400,
+  "height": 200,
   "data": {
     "values": [
-      {"country: "Switzerland", "year": 2015,"rank": 1}, {"country: "Iceland", "year": 2015,"rank": 2},
-      {"country: "Denmark", "year": 2015,"rank": 3}, {"country: "Norway", "year": 2015,"rank": 4},
-      {"country: "Canada", "year": 2015,"rank": 5}, {"country: "Finland", "year": 2015,"rank": 6},
-      {"country: "Netherlands", "year": 2015,"rank": 7}, {"country: "Sweden", "year": 2015,"rank": 8}, 
-      {"country: "New Zealand", "year": 2015,"rank": 9}, {"country: "Australia", "year": 2015,"rank": 10}, 
+      {"country": "Switzerland", "year": 2015,"rank": 1}, {"country": "Iceland", "year": 2015,"rank": 2},
+      {"country": "Denmark", "year": 2015,"rank": 3}, {"country": "Norway", "year": 2015,"rank": 4},
+      {"country": "Canada", "year": 2015,"rank": 5}, {"country": "Finland", "year": 2015,"rank": 6},
+      {"country": "Netherlands", "year": 2015,"rank": 7}, {"country": "Sweden", "year": 2015,"rank": 8}, 
+      {"country": "New Zealand", "year": 2015,"rank": 9}, {"country": "Australia", "year": 2015,"rank": 10}, 
       
-      {"country: "Denmark", "year": 2016,"rank": 1}, {"country: "Switzerland", "year": 2016,"rank": 2}, 
-      {"country: "Iceland", "year": 2016,"rank": 3}, {"country: "Norway", "year": 2016,"rank": 4}, 
-      {"country: "Finland", "year": 2016,"rank": 5}, {"country: "Canada", "year": 2016,"rank": 6}, 
-      {"country: "Netherlands", "year": 2016,"rank": 7}, {"country: "New Zealand", "year": 2016,"rank": 8}, 
-      {"country: "Australia", "year": 2016,"rank": 9}, {"country: "Sweden", "year": 2016,"rank": 10}, 
+      {"country": "Denmark", "year": 2016,"rank": 1}, {"country": "Switzerland", "year": 2016,"rank": 2}, 
+      {"country": "Iceland", "year": 2016,"rank": 3}, {"country": "Norway", "year": 2016,"rank": 4}, 
+      {"country": "Finland", "year": 2016,"rank": 5}, {"country": "Canada", "year": 2016,"rank": 6}, 
+      {"country": "Netherlands", "year": 2016,"rank": 7}, {"country": "New Zealand", "year": 2016,"rank": 8}, 
+      {"country": "Australia", "year": 2016,"rank": 9}, {"country": "Sweden", "year": 2016,"rank": 10}, 
 
-      {"country: "Norway", "year": 2017,"rank": 1}, {"country: "Denmark", "year": 2017,"rank": 2},
-      {"country: "Iceland", "year": 2017,"rank": 3}, {"country: "Switzerland", "year": 2017,"rank": 4},
-      {"country: "Finland", "year": 2017,"rank": 5}, {"country: "Netherlands", "year": 2017,"rank": 6},
-      {"country: "Canada", "year": 2017,"rank": 7}, {"country: "New Zealand", "year": 2017,"rank": 8},
-      {"country: "Sweden", "year": 2017,"rank": 9},{"country: "Australia", "year": 2017,"rank": 10}
-     
-
-     
-     {"team": "Germany", "matchday": 1, "point": 0, "diff": -1},
-      {"team": "Mexico", "matchday": 1, "point": 3, "diff": 1},
-      {"team": "South Korea", "matchday": 1, "point": 0, "diff": -1},
-      {"team": "Sweden", "matchday": 1, "point": 3, "diff": 1},
-      {"team": "Germany", "matchday": 2, "point": 3, "diff": 0},
-      {"team": "Mexico", "matchday": 2, "point": 6, "diff": 2},
-      {"team": "South Korea", "matchday": 2, "point": 0, "diff": -2},
-      {"team": "Sweden", "matchday": 2, "point": 3, "diff": 0},
-      {"team": "Germany", "matchday": 3, "point": 3, "diff": -2},
-      {"team": "Mexico", "matchday": 3, "point": 6, "diff": -1},
-      {"team": "South Korea", "matchday": 3, "point": 3, "diff": 0},
-      {"team": "Sweden", "matchday": 3, "point": 6, "diff": 3}
+      {"country": "Norway", "year": 2017,"rank": 1}, {"country": "Denmark", "year": 2017,"rank": 2},
+      {"country": "Iceland", "year": 2017,"rank": 3}, {"country": "Switzerland", "year": 2017,"rank": 4},
+      {"country": "Finland", "year": 2017,"rank": 5}, {"country": "Netherlands", "year": 2017,"rank": 6},
+      {"country": "Canada", "year": 2017,"rank": 7}, {"country": "New Zealand", "year": 2017,"rank": 8},
+      {"country": "Sweden", "year": 2017,"rank": 9},{"country": "Australia", "year": 2017,"rank": 10}
+    
     ]
   },
-  "transform": [{
-    "sort": [
-      {"field": "point", "order": "descending"},
-      {"field": "diff", "order": "descending"}
-    ],
-    "window": [{
-      "op": "rank",
-      "as": "rank"
-    }],
-    "groupby": ["year"]
-  }],
   "mark": {"type": "line", "orient": "vertical"},
   "encoding": {
     "x": {"field": "year", "type": "ordinal"},
