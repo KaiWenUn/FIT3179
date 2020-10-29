@@ -4,8 +4,8 @@
     "text": "Happiest Countries (2015-2017)",
     "frame": "bounds"
   },
-  "width": 400,
-  "height": 200,
+  "width": 250,
+  "height": 210,
   "data": {
     "values": [
       {"country": "Switzerland", "year": 2015,"rank": 1}, {"country": "Iceland", "year": 2015,"rank": 2},
@@ -32,6 +32,11 @@
   "encoding": {
     "x": {"field": "year", "type": "ordinal"},
     "y": {"field": "rank", "type": "ordinal"},
+    "tooltip": [
+      {"field": "country", "type": "nominal", "title": "Country"},
+      {"field": "rank", "type": "nominal", "title": "Rank"}
+    ],
+
     "color": {
       "field": "country", "type": "nominal",
       "scale": {
@@ -46,6 +51,8 @@
               "#FFFF00",
               "#000000"]
       }
+      
     }
   }
+  
 }
