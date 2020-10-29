@@ -1,7 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 400,
-  "height": 300,
+  "width": "container",
   "title": "Happiness Around The World",
   "data": {
     "url": "https://raw.githubusercontent.com/KaiWenUn/FIT3179/main/homeworkW10/data/2015.csv"
