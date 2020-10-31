@@ -85,10 +85,7 @@
         "size": {
           "field": "Generosity",
           "type": "quantitative",
-          "scale": {"type": "threshold", 
-                    "domain": [0.05, 0.1, 0.2, 0.5, 0.7]
-                    
-                    }
+          "scale": {"type": "threshold", "domain": [0.05, 0.1, 0.2, 0.5, 0.7]}
         },
         "color": {
           "field": "Region",
@@ -106,13 +103,14 @@
               "Australia and New Zealand"
             ],
             "range": [
+              
               "#e41a1c",
               "#984ea3",
               "#ff7f00",
               "#a6cee3",
-              "#377eb8",
+              "#386cb0",
               "#a65628",
-              "#00FF00",
+              "#fbb4ae",
               "#FFFF00",
               "#000000"
             ]
