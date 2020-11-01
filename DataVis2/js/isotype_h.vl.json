@@ -1,9 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "config": {"view": {"stroke": ""}},
-  "title": "In the coutnry with the highest happiness score",
+  "title": "In the country with the highest happiness score...",
   "width": 360,
-  "height": 250,
+  "height": 130,
   "data": {
     "values": [
       {"id": 1, "face" : "smile"},
@@ -47,7 +47,7 @@
     "y": {"field": "col", "type": "ordinal", "axis": null},
 
     "text": {"field": "emoji", "type": "nominal"},
-    "size": {"value": 40},
+    "size": {"value": 30},
 
     "strokeWidth" :  {"value" : 3.0},
     "fillOpacity": {
