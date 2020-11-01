@@ -73,14 +73,13 @@
   },
   "layer": [
     {
-      "selection": {
-        "region_highlight": {
-          "type": "multi",
-          "fields": ["Region"],
-          "bind": "legend"
-        }
+      "selection": {        "region_highlight": {"type": "multi", "empty": "all", "on": "mouseover"},
+        "select": {"type": "multi"},
+        "grid": {"type": "interval", "bind": "scales"}
       },
+
       "mark": "circle",
+      
       "encoding": {
         "size": {
           "field": "Generosity",
@@ -103,7 +102,6 @@
               "Australia and New Zealand"
             ],
             "range": [
-              
               "#e41a1c",
               "#984ea3",
               "#ff7f00",
