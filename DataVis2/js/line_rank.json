@@ -1,0 +1,58 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": {
+    "text": "Happiest Countries (2015-2017)",
+    "frame": "bounds"
+  },
+  "width": 350,
+  "height": 210,
+  "data": {
+    "values": [
+      {"country": "Switzerland", "year": 2015,"rank": 1}, {"country": "Iceland", "year": 2015,"rank": 2},
+      {"country": "Denmark", "year": 2015,"rank": 3}, {"country": "Norway", "year": 2015,"rank": 4},
+      {"country": "Canada", "year": 2015,"rank": 5}, {"country": "Finland", "year": 2015,"rank": 6},
+      {"country": "Netherlands", "year": 2015,"rank": 7}, {"country": "Sweden", "year": 2015,"rank": 8}, 
+      {"country": "New Zealand", "year": 2015,"rank": 9}, {"country": "Australia", "year": 2015,"rank": 10}, 
+      
+      {"country": "Denmark", "year": 2016,"rank": 1}, {"country": "Switzerland", "year": 2016,"rank": 2}, 
+      {"country": "Iceland", "year": 2016,"rank": 3}, {"country": "Norway", "year": 2016,"rank": 4}, 
+      {"country": "Finland", "year": 2016,"rank": 5}, {"country": "Canada", "year": 2016,"rank": 6}, 
+      {"country": "Netherlands", "year": 2016,"rank": 7}, {"country": "New Zealand", "year": 2016,"rank": 8}, 
+      {"country": "Australia", "year": 2016,"rank": 9}, {"country": "Sweden", "year": 2016,"rank": 10}, 
+
+      {"country": "Norway", "year": 2017,"rank": 1}, {"country": "Denmark", "year": 2017,"rank": 2},
+      {"country": "Iceland", "year": 2017,"rank": 3}, {"country": "Switzerland", "year": 2017,"rank": 4},
+      {"country": "Finland", "year": 2017,"rank": 5}, {"country": "Netherlands", "year": 2017,"rank": 6},
+      {"country": "Canada", "year": 2017,"rank": 7}, {"country": "New Zealand", "year": 2017,"rank": 8},
+      {"country": "Sweden", "year": 2017,"rank": 9},{"country": "Australia", "year": 2017,"rank": 10}
+    
+    ]
+  },
+  "mark": {"type": "line", "orient": "vertical"},
+  "encoding": {
+    "x": {"field": "year", "type": "ordinal"},
+    "y": {"field": "rank", "type": "ordinal"},
+    "tooltip": [
+      {"field": "country", "type": "nominal", "title": "Country"},
+      {"field": "rank", "type": "nominal", "title": "Rank"}
+    ],
+
+    "color": {
+      "field": "country", "type": "nominal",
+      "scale": {
+        "domain": ["Switzerland", "Australia", "Sweden", "Canada", "Norway", "New Zealand", "Denmark", "Netherlands", "Iceland", "Finland"],
+        "range": ["#0C71AB", "#e41a1c",
+              "#984ea3",
+              "#ff7f00",
+              "#a6cee3",
+              "#377eb8",
+              "#a65628",
+              "#00FF00",
+              "#FFFF00",
+              "#000000"]
+      }
+      
+    }
+  }
+  
+}
