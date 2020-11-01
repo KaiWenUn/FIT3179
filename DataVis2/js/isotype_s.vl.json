@@ -1,8 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "config": {"view": {"stroke": ""}},
-  "width": 800,
-  "height": 200,
+ "title": "In the coutnry with the lowest happiness score in 2015...",
+  "width": 360,
+  "height": 250,
   "data": {
     "values": [
       {"id": 1, "face" : "smile"},
