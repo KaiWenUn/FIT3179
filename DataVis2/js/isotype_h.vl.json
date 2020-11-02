@@ -48,6 +48,12 @@
     "fillOpacity": {
       "condition": {"test": "datum.face=='smile'", "value": 1},
       "value": 0.5
+    },
+        "tooltip": {
+      "condition": [
+        {"test": "datum.face=='smile'", "value": "😃"}
+      ],
+      "value": "😢"
     }
   }
 }
