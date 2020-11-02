@@ -1,0 +1,80 @@
+  
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Average Life Expectancy (2015)",
+  "width": 300,
+  "height": 200,
+  "data": {
+    "url": "https://raw.githubusercontent.com/KaiWenUn/FIT3179/main/DataVis2/data/2015.csv"
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {"op": "mean", "field": "Health (Life Expectancy)", "as": "Average Life Expectancy"}
+      ],
+      "groupby": ["Region"]
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "arc", "innerRadius": 15, "stroke": "#fff"}      ,
+      "selection": {
+        "highlight": {"type": "single", "empty": "none", "on": "mouseover"},
+        "select": {"type": "multi"}
+      }
+    
+},
+
+    {
+      "mark": {
+        "type": "text",
+        "radiusOffset": 20,
+        "fontSize": 13,
+        "font": "Arial"
+      },
+      "encoding": {
+        "fillOpacity": {
+          "condition": {"selection": "select", "value": 1},
+          "value": 0.1
+        },
+        "text": {
+          "field": "Average Life Expectancy",
+          "type": "nominal",
+          "format": ".2f"
+        }
+      }
+    }
+  ],
+  "encoding": {
+    "tooltip": [{"field": "Region", "type": "nominal"},
+                {"field": "Average Life Expectancy", "format": ".2f" }],
+    "theta": {
+      "field": "Average Life Expectancy",
+      "type": "quantitative",
+      "stack": true
+    },
+    "radius": {
+      "field": "Average Life Expectancy",
+      "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}
+    },
+    "color": {
+      "field": "Region",
+      "type": "nominal",
+      "scale": {
+        "range": [
+               "#e41a1c",
+              "#984ea3",
+              "#ff7f00",
+              "#a6cee3",
+              "#386cb0",
+              "#a65628",
+              "#fbb4ae",
+              "#FEDD00",
+              "#000000",
+              "#601a4a"
+        ]
+      },"legend": null
+    }
+  },
+  "view": {"stroke": null}
+}
