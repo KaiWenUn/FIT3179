@@ -1,22 +1,79 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "description": "A simple radial chart with embedded data.",
-  "width": "container",
+  "title": "Average Happiness Score",
+  "width": 300,
+  "height": 200,
   "data": {
-    "values": [12, 23, 47, 6, 52, 19]
+    "url": "https://raw.githubusercontent.com/KaiWenUn/FIT3179/main/DataVis2/data/2015.csv"
   },
-  "layer": [{
-    "mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"}
-  },{
-    "mark": {"type": "text", "radiusOffset": 10},
-    "encoding": {
-      "text": {"field": "data", "type": "quantitative"}
+  "transform": [
+    {
+      "aggregate": [
+        {"op": "mean", "field": "Happiness_Score", "as": "Average Happiness Score"}
+      ],
+      "groupby": ["Region"]
     }
-  }],
+  ],
+  "layer": [
+    {
+      "mark": {"type": "arc", "innerRadius": 15, "stroke": "#fff"}      ,
+      "selection": {
+        "highlight": {"type": "single", "empty": "none", "on": "mouseover"},
+        "select": {"type": "multi"}
+      }
+    
+},
+
+    {
+      "mark": {
+        "type": "text",
+        "radiusOffset": 20,
+        "fontSize": 13,
+        "font": "Arial"
+      },
+      "encoding": {
+        "fillOpacity": {
+          "condition": {"selection": "select", "value": 1},
+          "value": 0.1
+        },
+        "text": {
+          "field": "Average Happiness Score",
+          "type": "nominal",
+          "format": ".2f"
+        }
+      }
+    }
+  ],
   "encoding": {
-    "theta": {"field": "data", "type": "quantitative", "stack": true},
-    "radius": {"field": "data", "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}},
-    "color": {"field": "data", "type": "nominal", "legend": null}
+    "tooltip": [{"field": "Region", "type": "nominal"},
+                {"field": "Average Happiness Score", "format": ".2f" }],
+    "theta": {
+      "field": "Average Happiness Score",
+      "type": "quantitative",
+      "stack": true
+    },
+    "radius": {
+      "field": "Average Happiness Score",
+      "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}
+    },
+    "color": {
+      "field": "Region",
+      "type": "nominal",
+      "scale": {
+        "range": [
+              "#e41a1c",
+              "#984ea3",
+              "#ff7f00",
+              "#a6cee3",
+              "#386cb0",
+              "#a65628",
+              "#fbb4ae",
+              "#9e9cc2",
+              "#000000",
+              "#601a4a"
+        ]
+      }
+    }
   },
   "view": {"stroke": null}
 }
