@@ -1,43 +1,40 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "config": {"view": {"stroke": ""}},
- "title": "In the saddest cuontry...",
+  "title": "In the saddest cuontry...",
   "width": 250,
   "height": 100,
   "data": {
     "values": [
-      {"id": 1, "face" : "smile"},
-      {"id": 2, "face" : "smile"},
-      {"id": 3, "face" : "smile"},
-      {"id": 4, "face" : "smile"},
-      {"id": 5, "face" : "smile"},
-      {"id": 6, "face" : "smile"},
-      {"id": 7, "face" : "smile"},
-      {"id": 8, "face" : "frown"},
-      {"id": 9, "face" : "frown"},
-      {"id": 10, "face" : "frown"},
-      {"id": 11, "face" : "frown"},
-      {"id": 12, "face" : "frown"},
-      {"id": 13, "face" : "frown"},
-      {"id": 14, "face" : "frown"},
-      {"id": 15, "face" : "frown"},
-      {"id": 16, "face" : "frown"},
-      {"id": 17, "face" : "frown"},
-      {"id": 18, "face" : "frown"},
-      {"id": 19, "face" : "frown"},
-      {"id": 20, "face" : "frown"},
-      {"id": 21, "face" : "frown"},
-      {"id": 22, "face" : "frown"},
-      {"id": 23, "face" : "frown"},
-      {"id": 24, "face" : "frown"},
-      {"id": 25, "face" : "frown"}]
-
+      {"id": 1, "face": "smile"},
+      {"id": 2, "face": "smile"},
+      {"id": 3, "face": "smile"},
+      {"id": 4, "face": "smile"},
+      {"id": 5, "face": "smile"},
+      {"id": 6, "face": "smile"},
+      {"id": 7, "face": "smile"},
+      {"id": 8, "face": "frown"},
+      {"id": 9, "face": "frown"},
+      {"id": 10, "face": "frown"},
+      {"id": 11, "face": "frown"},
+      {"id": 12, "face": "frown"},
+      {"id": 13, "face": "frown"},
+      {"id": 14, "face": "frown"},
+      {"id": 15, "face": "frown"},
+      {"id": 16, "face": "frown"},
+      {"id": 17, "face": "frown"},
+      {"id": 18, "face": "frown"},
+      {"id": 19, "face": "frown"},
+      {"id": 20, "face": "frown"},
+      {"id": 21, "face": "frown"},
+      {"id": 22, "face": "frown"},
+      {"id": 23, "face": "frown"},
+      {"id": 24, "face": "frown"},
+      {"id": 25, "face": "frown"}
+    ]
   },
   "transform": [
-    {
-      "calculate": "{'smile': '😊', 'frown': '😔'}[datum.face]",
-      "as": "emoji"
-    },
+    {"calculate": "{'smile': '😊', 'frown': '😔'}[datum.face]", "as": "emoji"},
     {"calculate": "ceil (datum.id/10)", "as": "col"},
     {"calculate": "datum.id - datum.col*10", "as": "row"}
   ],
@@ -45,14 +42,18 @@
   "encoding": {
     "x": {"field": "row", "type": "ordinal", "axis": null},
     "y": {"field": "col", "type": "ordinal", "axis": null},
-
     "text": {"field": "emoji", "type": "nominal"},
     "size": {"value": 20},
-
-    "strokeWidth" :  {"value" : 3.0},
+    "strokeWidth": {"value": 3},
     "fillOpacity": {
-          "condition": {"test": "datum.face=='smile'", "value": 1},
-          "value": 0.5
-        }
+      "condition": {"test": "datum.face=='smile'", "value": 1},
+      "value": 0.5
+    },
+    "tooltip": {
+      "condition": [
+        {"test": "datum.face=='smile'", "value": "😃"}
+      ],
+      "value": "😢"
+    }
   }
 }
