@@ -2,8 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "config": {"view": {"stroke": ""}},
  "title": "In the country with the lowest happiness score...",
-  "width": 360,
-  "height": 130,
+  "width": 250,
+  "height": 100,
   "data": {
     "values": [
       {"id": 1, "face" : "smile"},
@@ -47,7 +47,7 @@
     "y": {"field": "col", "type": "ordinal", "axis": null},
 
     "text": {"field": "emoji", "type": "nominal"},
-    "size": {"value": 30},
+    "size": {"value": 20},
 
     "strokeWidth" :  {"value" : 3.0},
     "fillOpacity": {
