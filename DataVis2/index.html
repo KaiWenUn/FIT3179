@@ -130,6 +130,9 @@
         </div>
       </div>
       <div class="pure-u-1-3">
+        <div id="radial_plot3"  class="vis-container"></div>
+      </div>
+      <div class="pure-u-1-3">
         <div id="radial_plot"  class="vis-container"></div>
       </div>
       <div class="pure-u-1-3">
@@ -229,7 +232,11 @@
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
   
+   var vis8 = "js/radial_plot3.vl.json";
   
+  vegaEmbed('#radial_plot3', vis8).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);  
 </script>
 </body>
 </html>
